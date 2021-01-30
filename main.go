@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type node struct {
 	data int
@@ -22,9 +24,10 @@ func (l *linkedList) prepend(n *node) {
 func (l linkedList) printListData() {
 	currNode := l.head
 	for i := l.length; i > 0; i-- {
-		fmt.Printf("%d \n", currNode.data)
+		fmt.Printf("%d ", currNode.data)
 		currNode = currNode.next
 	}
+	fmt.Printf("\n")
 }
 
 func (l *linkedList) deleteWithValue(value int) {
@@ -41,12 +44,13 @@ func (l *linkedList) deleteWithValue(value int) {
 	prevToDelete := l.head
 	for prevToDelete.next.data != value {
 		if prevToDelete.next.next == nil {
-			fmt.Println("no match")
+			fmt.Printf("no match with %v\n", value)
 			return
 		}
 		prevToDelete = prevToDelete.next
 	}
 	prevToDelete.next = prevToDelete.next.next
+	fmt.Printf("%v has removed\n", value)
 	l.length--
 }
 

@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func indexOf(element int, data []int) int {
+	for k, v := range data {
+		if element == v {
+			return k
+		}
+	}
+	return -1
+}
+
+func sysmetricDiff(a []int, b []int) []int {
+	var result []int
+	for i := 0; i < len(a); i++ {
+		if indexOf(a[i], b) < 0 {
+			result = append(result, a[i])
+		}
+	}
+	return result
+}
+
+func main() {
+	d := [][]int{{1, 2, 3, 3}, {15, 2, 1, 4}}
+	err := sysmetricDiff(d[0], d[1])
+	if err != nil {
+		fmt.Printf("%v ", err)
+	}
+}
