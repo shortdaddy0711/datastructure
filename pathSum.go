@@ -11,16 +11,27 @@ type treeNode struct {
 	Right *treeNode `json:"right"`
 }
 
+
+
 func hasPathSum(root *treeNode, sum int) bool {
 	if root == nil {
 		return false
 	}
 	if root.Left == nil && root.Right == nil {
-		if root.Val == sum {
-			return true
-		}
+		return root.Val == sum
 	}
 	return hasPathSum(root.Left, sum-root.Val) || hasPathSum(root.Right, sum-root.Val)
+}
+
+func pathSum(root *treeNode, sum int) [][]int {
+	result := [][]int{}
+
+	
+
+
+
+
+	return result
 }
 
 func main() {
@@ -43,8 +54,6 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("%#v\n", hasPathSum(&tree, 22))
-	fmt.Printf("%#v\n", hasPathSum(&tree, 27))
-	fmt.Printf("%#v\n", hasPathSum(&tree, 26))
-	fmt.Printf("%#v\n", hasPathSum(&tree, 18))
-	fmt.Printf("%#v\n", hasPathSum(&tree, 19))
+	fmt.Printf("%#v\n", pathSum(&tree, 22))
+
 }
