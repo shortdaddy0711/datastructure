@@ -14,14 +14,14 @@ type linkedList struct {
 	length int
 }
 
-func (l *linkedList) prepend(n *node) {
+func (l *linkedList) Prepend(n *node) {
 	second := l.head
 	l.head = n
 	l.head.next = second
 	l.length++
 }
 
-func (l linkedList) printListData() {
+func (l linkedList) PrintListData() {
 	currNode := l.head
 	for i := l.length; i > 0; i-- {
 		fmt.Printf("%d ", currNode.data)
@@ -30,7 +30,7 @@ func (l linkedList) printListData() {
 	fmt.Printf("\n")
 }
 
-func (l *linkedList) deleteWithValue(value int) {
+func (l *linkedList) DeleteWithValue(value int) {
 	if l.length == 0 {
 		return
 	}
@@ -54,20 +54,20 @@ func (l *linkedList) deleteWithValue(value int) {
 	l.length--
 }
 
-func main() {
+func main()  {
 	myList := linkedList{}
 	node1 := &node{data: 2}
 	node2 := &node{data: 4}
 	node3 := &node{data: 8}
 	node4 := &node{data: 16}
 	node5 := &node{data: 32}
-	myList.prepend(node1)
-	myList.prepend(node2)
-	myList.prepend(node3)
-	myList.prepend(node4)
-	myList.prepend(node5)
-	myList.printListData()
-	myList.deleteWithValue(100)
-	myList.deleteWithValue(8)
-	myList.printListData()
+	myList.Prepend(node1)
+	myList.Prepend(node2)
+	myList.Prepend(node3)
+	myList.Prepend(node4)
+	myList.Prepend(node5)
+	myList.PrintListData()
+	myList.DeleteWithValue(100)
+	myList.DeleteWithValue(8)
+	myList.PrintListData()
 }
